@@ -5,4 +5,4 @@ git status
 git add . -v
 git commit -m "${comment}"
 git push
-echo "complete git push"
+echo "Complete git push"
