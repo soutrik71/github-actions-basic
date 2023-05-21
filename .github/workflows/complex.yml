@@ -10,20 +10,20 @@ jobs:
     name: Ubuntu job
     runs-on: ubuntu-latest
     steps:
-      - run: datetime
+      - run: date
 
   job2:
     name: Windows job
     runs-on: windows-latest
     steps:
-      - run: datetime
+      - run: date
 
   job3:
     name: macos job
     runs-on: macos-latest
     steps:
-      - run: datetime
-
+      - run: date
+      
   job4:
     name: dependent job
     runs-on: ubuntu-latest
