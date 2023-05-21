@@ -1,6 +1,10 @@
 name: first_workflow
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
 
 jobs:
   job1:
