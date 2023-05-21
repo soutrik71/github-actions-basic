@@ -1,0 +1,22 @@
+name: first_workflow
+
+on: [push, pull_request]
+
+jobs:
+  job1:
+    name: First job
+    runs-on: ubuntu-latest
+    steps:
+      - name: step one
+        uses: actions/checkout@v2
+      - name: step two
+        run: env | sort
+
+  job2:
+    name: Second job
+    runs-on: windows-latest
+    steps:
+      - name: step one
+        uses: actions/checkout@v2
+      - name: step two
+        run: "Get-ChildItem Env:"
