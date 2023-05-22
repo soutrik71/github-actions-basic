@@ -32,7 +32,7 @@ jobs:
           echo ${{ env.STEP_ENVIRONMENT_VARIABLE }}
           echo ${{ env.OVERIDE }}
 
-  windows:
+  windows:  # overide not changed after workspace level
     env:
       JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for windows'
     runs-on: windows-latest
