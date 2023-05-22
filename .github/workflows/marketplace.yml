@@ -1,0 +1,21 @@
+name: python-application
+on:
+  push:
+    branches:
+      - master
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+     - name: Branch checkout
+       uses: actions/checkout@v3
+
+     - name: Python Syntax Checker
+       uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
+    
+    
+  
+ 
+      
