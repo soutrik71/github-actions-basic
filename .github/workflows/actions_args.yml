@@ -18,9 +18,8 @@ jobs:
       - name: Update Java versions
         uses: actions/setup-java@v3
         with:
-          java-version: "9.0.4" # The JDK version to make available on the path
-          java-package: jdk # (jre, jdk, or jdk+fx) - defaults to jdk
-          architecture: x64 # (x64 or x86) - defaults to x64
+          java-version: "11" 
+          distribution: 'temurin' 
 
       - name: Check new version
         run: |
