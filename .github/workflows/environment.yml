@@ -1,0 +1,34 @@
+name: environment variable
+env:
+  WORKSPACE_ENVIRONMENT_VARIABLE: 'custom workspace environment variable'
+  OVERIDE: 'Workspace level'
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  name: ubuntu type
+  env:
+    JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for ubuntu'
+    OVERIDE: 'Job level'
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Print custom environment variables from ubuntu-latest
+      env:
+        STEP_ENVIRONMENT_VARIABLE: 'custom step environment variable for bash'
+        OVERIDE: 'Step level'
+      run: |
+        echo "Accessing environment variables in run command"
+        echo "$WORKSPACE_ENVIRONMENT_VARIABLE"
+        echo "$JOB_ENVIRONMENT_VARIABLE"
+        echo "$STEP_ENVIRONMENT_VARIABLE"
+        echo "$OVERIDE"
+        echo "------------------------------------------------------"
+        echo "Accessing environment variables using env context from YML"
+        echo ${{ env.WORKSPACE_ENVIRONMENT_VARIABLE }}
+        echo ${{ env.JOB_ENVIRONMENT_VARIABLE }}
+        echo ${{ env.STEP_ENVIRONMENT_VARIABLE }}
+        echo ${{ env.OVERIDE }}

@@ -2,6 +2,7 @@ name: Environment Variables
 env:
   WORKSPACE_ENVIRONMENT_VARIABLE: 'custom workspace environment variable'
 on: [push]
+
 jobs:
   ubuntu:
     env:
