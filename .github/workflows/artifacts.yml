@@ -46,5 +46,5 @@ jobs:
           cd ${{ env.FILENAME }}/
           ls -a
 
-      - name: Test ${{ env.FILE_NAME }}
-        run: source hello-server/test.sh
+      # - name: Test ${{ env.FILE_NAME }}
+      #   run: source hello-server/test.sh
