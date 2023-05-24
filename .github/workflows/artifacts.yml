@@ -41,10 +41,10 @@ jobs:
           name: linux_upload
 
       - name: Display structure of downloaded files
-        run: ls -a
+        run: |
+          ls -a
+          cd ${{ env.FILENAME }}/
+          ls -a
 
       - name: Test ${{ env.FILE_NAME }}
         run: source hello-server/test.sh
-        
-
-
