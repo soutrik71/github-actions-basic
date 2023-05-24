@@ -1,0 +1,52 @@
+name: artifcat-sharing
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  FILE_NAME: hello-server
+
+jobs:
+  build-job:
+    name: sol-build-server
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v1
+
+      - name: execute ${{ env.FILE_NAME }}
+        run: go build {{ env.FILE_NAME }}.go
+
+      - name: upload artifact to linux folder
+        uses: actions/upload-artifacts@v3
+        with:
+          name: linux_upload
+          path: ./${{ env.FILE_NAME }}
+
+  test-job:
+    name: sol-test
+    runs-on: ubuntu-latest
+    needs: [build-job]
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+
+      - name: download uploaded artifacts
+        uses: actions/download-artifacts@v3
+        with:
+          name: linux_upload
+
+      - name: Display structure of downloaded files
+        run: ls -a
+
+      - name: Test ${{ env.FILE_NAME }}
+        run: source ./test.sh
+
+
+        
+
+
