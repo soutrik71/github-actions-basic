@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: execute ${{ env.FILE_NAME }}
-        run: go build {{ env.FILE_NAME }}.go
+        run: go build ${{ env.FILE_NAME }}.go
 
       - name: upload artifact to linux folder
         uses: actions/upload-artifact@v3
