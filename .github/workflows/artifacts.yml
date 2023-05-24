@@ -44,7 +44,7 @@ jobs:
         run: ls -a
 
       - name: Test ${{ env.FILE_NAME }}
-        run: source ./test.sh
+        run: source hello-server/test.sh
         
 
 
